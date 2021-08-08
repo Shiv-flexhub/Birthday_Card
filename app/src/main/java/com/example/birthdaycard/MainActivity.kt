@@ -9,18 +9,21 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+    
+    private lateinit var Binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
     fun createBirthdayCard(view: View) {
-        val name:TextView = findViewById(R.id.nameInput)
-        val entername = name.editableText.toString()
-        Toast.makeText(this, "Hi $entername, I hope you like this!!!", Toast.LENGTH_SHORT).show()
+        
+        val name = binding.nameInput.editableText.toString()
+        Toast.makeText(this, "Hi $name, I hope you like this!!!", Toast.LENGTH_SHORT).show()
 
         val intent = Intent(this, BirthdayGreetingActivity::class.java)
-        intent.putExtra(BirthdayGreetingActivity.NAME_EXTRA,entername)
+        intent.putExtra(BirthdayGreetingActivity.NAME_EXTRA,name)
 
         startActivity(intent)
 

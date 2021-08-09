@@ -1,1 +1,12 @@
 https://ronreiter-meme-generator.p.rapidapi.com/meme?meme=Condescending-Wonka&bottom=Bottom%20Text&top=Top%20Text&font=Impact&font_size=50
+
+
+val client = OkHttpClient()
+
+val request = Request.Builder()
+	.url("https://ronreiter-meme-generator.p.rapidapi.com/meme?meme=Condescending-Wonka&bottom=Bottom%20Text&top=Top%20Text&font=Impact&font_size=50")
+	.get()
+	.addHeader("x-rapidapi-host", "ronreiter-meme-generator.p.rapidapi.com")
+	.build()
+
+val response = client.newCall(request).execute()
